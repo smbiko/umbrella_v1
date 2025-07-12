@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'home',  #  custom app
+
 ]
 
 MIDDLEWARE = [
@@ -59,7 +61,10 @@ ROOT_URLCONF = 'umbrella.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [ 
+            os.path.join(BASE_DIR, 'templates'),  # Custom templates directory
+            os.path.join(BASE_DIR, 'allauth', 'templates'),  # allauth app templates
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
